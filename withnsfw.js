@@ -23,7 +23,8 @@ discord.on('message', (msg) => {
     discord.user.setActivity('do .help for commands')
     if (msg.content == `${config.prefix}credits`) {
       msg.channel.send('*Made by sertdfyguhi#5971*')
-    } else if (msg.content == `${config.prefix}pin`) {
+    }
+    if (msg.content == `${config.prefix}pin`) {
       const author = msg.guild.member(msg.author)
       if (
         author.hasPermission('ADMINISTRATOR') ||
@@ -33,7 +34,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send('Not enough permissions')
       }
-    } else if (msg.content.startsWith(`${config.prefix}help`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}help`)) {
       const args = msg.content.slice(config.prefix.length).trim().split(' ')
       if (msg.content == `${config.prefix}help`) {
         const commandsEmbed = new discordjs.MessageEmbed()
@@ -42,7 +44,7 @@ discord.on('message', (msg) => {
           .setDescription('Prefix: `.`\n\n')
           .addField(
             '**General**',
-            '`.help {command}`\n`.credits`\n`.serverinfo`\n`.botinvite`\n`.pin`\n`.prefix`\n`.nick {nickname}`\n`.servericon`'
+            '`.help {command}`\n`.credits`\n`.serverinfo`\n`.botinvite`\n`.pin`\n`.prefix`\n`.nick {nickname}`\n`.servericon`\n`.support`'
           )
           .addField(
             '**Moderation**',
@@ -52,6 +54,10 @@ discord.on('message', (msg) => {
             '**Fun**',
             '`.random {letter, number, string, color} {hex, shorthex, rgb, 0x(color only)}`\n`.uwu {text}`\n`.owo {text}`\n`.dog`\n`.cat`\n`.embed -{title} -{description} -{hex color}`\n`.say {text}`\n`.dm {text}`\n`.coin`\n`.neko`\n`.fox`\n`.bird`\n`.duck`\n`.seal`\n`.spoilers`\n`.useless`\n`.choose {option} {option}...`\n`.word {number of words}`\n`.proglang`\n`.panda`\n`.binary {encode/decode} {text/binary}`\n`.base64 {encode/decode} {text/base64}`\n`.reverse {text}`\n`.stickbug`\n`.shiba`\n`.mlem`\n`.nugget`\n`.earthporn`\n`.meme`\n`.food`\n`.calculate {calculation}`\n`.pasta`\n`.dice {d4, d6, d8, d10, d12, d20, d30, d100}`\n`.8ball {question}`\n`.rndtranslate {text}`\n`.hug`\n`.koala`\n`.wink`\n`.pat`\n`.rps {rock, paper, scissors}`\n`.japan`\n`.emojitext {text}`'
           )
+          // .addField(
+          //   '**Nsfw**',
+          //   '`.nsfw {pussy, 4k, anal, gif, hentai, lewd, hentaicum}`'
+          // )
           .addField(
             '**Misc**',
             '`.avatar {mention}`\n`.ping`\n`.urban {word}`\n`.delete`\n`.lyrics {song name}`\n`.userinfo {mention}`\n`.tinyurl {url}`\n`.poll {channel} {question}`\n`.hastebin {text}`\n`.translate {language} {text}`\n`.translangs`\n`.covid19`'
@@ -64,195 +70,266 @@ discord.on('message', (msg) => {
       }
       if (args[1] == 'help') {
         msg.channel.send('`.help`: sends command')
-      } else if (args[1] == 'credits') {
+      }
+      if (args[1] == 'credits') {
         msg.channel.send('`.credits`: sends credits')
-      } else if (args[1] == 'server') {
+      }
+      if (args[1] == 'server') {
         msg.channel.send('`.serverinfo`: sends server info')
-      } else if (args[1] == 'botinvite') {
+      }
+      if (args[1] == 'botinvite') {
         msg.channel.send('`.botinvite`: sends bot invite')
-      } else if (args[1] == 'pin') {
+      }
+      if (args[1] == 'pin') {
         msg.channel.send('`.pin`: pins message (admin only)')
-      } else if (args[1] == 'prefix') {
+      }
+      if (args[1] == 'prefix') {
         msg.channel.send('`.prefix`: sends prefix')
-      } else if (args[1] == 'random') {
+      }
+      if (args[1] == 'random') {
         msg.channel.send(
           '`.random {letter, number, string, color} {0x, hex shorthex, rgb (color only)}`: sends random letter, number, string or color, 0x, hex, shorthex, rgb is only for color'
         )
-      } else if (args[1] == 'uwu') {
+      }
+      if (args[1] == 'uwu') {
         msg.channel.send('`.uwu`: uwuifies text')
-      } else if (args[1] == 'owo') {
+      }
+      if (args[1] == 'owo') {
         msg.channel.send('`.owo`: owofies text (basically a better .uwu)')
-      } else if (args[1] == 'dog') {
+      }
+      if (args[1] == 'dog') {
         msg.channel.send('`.dog`: sends random dog photo')
-      } else if (args[1] == 'urban') {
+      }
+      if (args[1] == 'urban') {
         msg.channel.send(
           '`.urban {word}`: searches word up on urban dictionary and sends the definition'
         )
-      } else if (args[1] == 'cat') {
+      }
+      if (args[1] == 'cat') {
         msg.channel.send('`.cat`: sends random cat photo')
-      } else if (args[1] == 'embed') {
+      }
+      if (args[1] == 'embed') {
         msg.channel.send(
           '`.embed -{title} -{description} -{hex color}`: sends a embed (make sure to add - in front of title, description and color)'
         )
-      } else if (args[1] == 'say') {
+      }
+      if (args[1] == 'say') {
         msg.channel.send('`.say {text}`: says text')
-      } else if (args[1] == 'dm') {
+      }
+      if (args[1] == 'dm') {
         msg.channel.send("`.dm {text}`: dm's message author text")
-      } else if (args[1] == 'coin') {
+      }
+      if (args[1] == 'coin') {
         msg.channel.send('`.coin`: flips a coin')
-      } else if (args[1] == 'avatar') {
+      }
+      // if (args[1] == 'nsfw') {
+      //   msg.channel.send(
+      //     '`.nsfw {4k, gif, hentai, anal, pussy, lewd, hentaicum}`: sends random nsfw photo'
+      //   )
+      // }
+      if (args[1] == 'avatar') {
         msg.channel.send("`.avatar {mention}`: sends mentioned user's avatar")
-      } else if (args[1] == 'ping') {
+      }
+      if (args[1] == 'ping') {
         msg.channel.send('`.ping`: sends bot ping')
-      } else if (args[1] == 'nick') {
+      }
+      if (args[1] == 'nick') {
         msg.channel.send(
           '`.nick {nickname}`: set your nickname (only for roles under bot role)'
         )
-      } else if (args[1] == 'neko') {
+      }
+      if (args[1] == 'neko') {
         msg.channel.send('`.neko`: sends random neko pic')
-      } else if (args[1] == 'delete') {
+      }
+      if (args[1] == 'delete') {
         msg.channel.send('`.delete`: deletes the message')
-      } else if (args[1] == 'fox') {
+      }
+      if (args[1] == 'fox') {
         msg.channel.send('`.fox`: sends random fox pic')
-      } else if (args[1] == 'bird') {
+      }
+      if (args[1] == 'bird') {
         msg.channel.send('`.bird`: sends random bird pic')
-      } else if (args[1] == 'duck') {
+      }
+      if (args[1] == 'duck') {
         msg.channel.send('`.duck`: sends random duck pic')
-      } else if (args[1] == 'seal') {
+      }
+      if (args[1] == 'seal') {
         msg.channel.send('`.seal`: sends random seal pic')
-      } else if (args[1] == 'spoilers') {
+      }
+      if (args[1] == 'spoilers') {
         msg.channel.send('`.spoilers`: hides spoiler message')
-      } else if (args[1] == 'useless') {
+      }
+      if (args[1] == 'useless') {
         msg.channel.send('`.useless`: sends random useless website')
-      } else if (args[1] == 'servericon') {
+      }
+      if (args[1] == 'servericon') {
         msg.channel.send('`.servericon`: sends server icon')
-      } else if (args[1] == 'choose') {
+      }
+      if (args[1] == 'choose') {
         msg.channel.send('`.choose {option} {option}...`: helps you decide')
-      } else if (args[1] == 'word') {
+      }
+      if (args[1] == 'word') {
         msg.channel.send(
           '`.word {number of words}`: sends random word(s) (cap is 5)'
         )
-      } else if (args[1] == 'proglang') {
+      }
+      if (args[1] == 'proglang') {
         msg.channel.send('`.proglang`: sends random programming language')
-      } else if (args[1] == 'panda') {
+      }
+      if (args[1] == 'panda') {
         msg.channel.send('`.panda`: sends random panda pic')
-      } else if (args[1] == 'lyrics') {
+      }
+      if (args[1] == 'lyrics') {
         msg.channel.send('`.lyrics {song name}`: sends lyrics of song name')
-      } else if (args[1] == 'userinfo') {
+      }
+      if (args[1] == 'userinfo') {
         msg.channel.send('`.userinfo {mention}`: sends user info')
-      } else if (args[1] == 'binary') {
+      }
+      if (args[1] == 'binary') {
         msg.channel.send(
           '`.binary {encode/decode} {text/binary}`: encodes text to binary or decode binary to text'
         )
-      } else if (args[1] == 'base64') {
+      }
+      if (args[1] == 'base64') {
         msg.channel.send(
           '`.base64 {encode/decode} {text/base64}`: encodes text to base64 or decode base64 to text'
         )
-      } else if (args[1] == 'reverse') {
+      }
+      if (args[1] == 'reverse') {
         msg.channel.send('`.reverse {text}`: reverses text')
-      } else if (args[1] == 'stickbug') {
+      }
+      if (args[1] == 'stickbug') {
         msg.channel.send('`.stickbug`: send random stickbug meme')
-      } else if (args[1] == 'shiba') {
+      }
+      if (args[1] == 'shiba') {
         msg.channel.send('`.shiba`: sends random shiba inu pic')
-      } else if (args[1] == 'mlem') {
+      }
+      if (args[1] == 'mlem') {
         msg.channel.send('`.mlem`: sends random mlem pic')
-      } else if (args[1] == 'nugget') {
+      }
+      if (args[1] == 'nugget') {
         msg.channel.send('`.nugget`: sends random nugget pic')
-      } else if (args[1] == 'earthporn') {
+      }
+      if (args[1] == 'earthporn') {
         msg.channel.send('`.earthporn`: sends random r/earthporn pic')
-      } else if (args[1] == 'meme') {
+      }
+      if (args[1] == 'meme') {
         msg.channel.send('`.meme`: sends random meme (probably')
-      } else if (args[1] == 'food') {
+      }
+      if (args[1] == 'food') {
         msg.channel.send('`.food`: sends random r/foodporn pic')
-      } else if (args[1] == 'calculate') {
+      }
+      if (args[1] == 'calculate') {
         msg.channel.send('`.calculate {calulation}`: calculates calculation')
-      } else if (args[1] == 'pasta') {
+      }
+      if (args[1] == 'pasta') {
         msg.channel.send('`.pasta`: sends random r/pasta pic')
-      } else if (args[1] == 'dice') {
+      }
+      if (args[1] == 'dice') {
         msg.channel.send(
           '`.dice {d4, d6, d8, d10, d12, d20, d30, d100}`: rolls a dice'
         )
-      } else if (args[1] == '8ball') {
+      }
+      if (args[1] == '8ball') {
         msg.channel.send('`.8ball {question}`: ask a question to the 8ball')
-      } else if (args[1] == 'tinyurl') {
+      }
+      if (args[1] == 'tinyurl') {
         msg.channel.send('`.tinyurl {url}`: shortens a link via tinyurl')
-      } else if (args[1] == 'rndtranslate') {
+      }
+      if (args[1] == 'rndtranslate') {
         msg.channel.send(
           '`.rndtranslate {text}`: translates text into too many languages'
         )
-      } else if (args[1] == 'kick') {
+      }
+      if (args[1] == 'kick') {
         msg.channel.send(
           '`.kick {mention} {reason}`: kicks mention (admin only)'
         )
-      } else if (args[1] == 'hug') {
+      }
+      if (args[1] == 'hug') {
         msg.channel.send('`.hug`: sends random anime hug gif')
-      } else if (args[1] == 'koala') {
+      }
+      if (args[1] == 'koala') {
         msg.channel.send('`.koala`: sends random koala pic')
-      } else if (args[1] == 'wink') {
+      }
+      if (args[1] == 'wink') {
         msg.channel.send('`.wink`: sends random anime wink gif')
-      } else if (args[1] == 'pat') {
+      }
+      if (args[1] == 'pat') {
         msg.channel.send('`.pat`: sends random anime pat gif')
-      } else if (args[1] == 'rps') {
+      }
+      if (args[1] == 'rps') {
         msg.channel.send(
           '`.rps {rock, paper, scissors}`: play a game of rock paper scissors with the bot'
         )
-      } else if (args[1] == 'japan') {
+      }
+      if (args[1] == 'japan') {
         msg.channel.send('`.japan`: sends random r/japanpics pic')
-      } else if (args[1] == 'poll') {
+      }
+      if (args[1] == 'poll') {
         msg.channel.send(
           '`.poll {channel} {question}`: creates a poll in channel (admin  only)'
         )
-      } else if (args[1] == 'hastebin') {
+      }
+      if (args[1] == 'hastebin') {
         msg.channel.send('`.hastebin {text}`: creates a hastebin')
-      } else if (args[1] == 'emojitext') {
+      }
+      if (args[1] == 'emojitext') {
         msg.channel.send(
           '`.emojitext {text}`: translates text to discord emojis'
         )
-      } else if (args[1] == 'translate') {
+      }
+      if (args[1] == 'translate') {
         msg.channel.send(
           '`.translate {language} {text}`: translates text to language do .translatelangs for supported languages'
         )
-      } else if (args[1] == 'translangs') {
+      }
+      if (args[1] == 'translangs') {
         msg.channel.send(
           '`.translangs`: sends list of supported languages for .translate'
         )
-      } else if (args[1] == 'covid19') {
+      }
+      if (args[1] == 'covid19') {
         msg.channel.send('`.covid19`: sends covid19 statistics')
-      } else if (args[1] == 'slowmode') {
+      }
+      if (args[1] == 'slowmode') {
         msg.channel.send(
           '`.slowmode {channel} {seconds}`: sets channel slowmode to seconds'
         )
-      } else {
-        msg.channel.send('Invalid command.')
       }
-    } else if (msg.content.startsWith(`${config.prefix}random`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}random`)) {
       const args = msg.content.slice(config.prefix.length).trim().split(' ')
       if (args[1] == 'letter') {
         msg.reply(chance.letter())
-      } else if (args[1] == 'number') {
+      }
+      if (args[1] == 'number') {
         msg.reply(chance.integer())
-      } else if (args[1] == 'string') {
+      }
+      if (args[1] == 'string') {
         msg.reply(chance.string())
-      } else if (args[1] == 'color') {
+      }
+      if (args[1] == 'color') {
         if (args[2] == 'hex') {
           msg.reply(chance.color({ format: 'hex' }))
-        } else if (args[2] == 'shorthex') {
-          msg.reply(chance.color({ format: 'shorthex' }))
-        } else if (args[2] == 'rgb') {
-          msg.reply(chance.color({ format: 'rgb' }))
-        } else if (args[2] == '0x') {
-          msg.reply(chance.color({ format: '0x' }))
-        } else {
-          msg.channel.send('Invalid format.')
         }
-      } else {
-        msg.channel.send('Invalid type.')
+        if (args[2] == 'shorthex') {
+          msg.reply(chance.color({ format: 'shorthex' }))
+        }
+        if (args[2] == 'rgb') {
+          msg.reply(chance.color({ format: 'rgb' }))
+        }
+        if (args[2] == '0x') {
+          msg.reply(chance.color({ format: '0x' }))
+        }
       }
-    } else if (msg.content == `${config.prefix}botinvite`) {
+    }
+    if (msg.content == `${config.prefix}botinvite`) {
       msg.channel.send(
         'https://discord.com/oauth2/authorize?client_id=754514209357955132&permissions=8&scope=bot'
       )
-    } else if (msg.content.startsWith(`${config.prefix}avatar`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}avatar`)) {
       const user = msg.mentions.users.first()
       if (user) {
         const avatarEmbed = new discordjs.MessageEmbed()
@@ -267,18 +344,21 @@ discord.on('message', (msg) => {
           .setColor('#00e98a')
         msg.channel.send(avatarEmbed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}dm`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}dm`)) {
       const args = msg.content.slice(config.prefix.length).trim().split('dm ')
       msg.channel.send('Message sent')
       msg.author.send(args[1])
-    } else if (msg.content.startsWith(`${config.prefix}embed`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}embed`)) {
       const args = msg.content.slice(config.prefix.length).trim().split('-')
       const embed = new discordjs.MessageEmbed()
         .setTitle(args[1])
         .setDescription(args[2])
         .setColor(args[3])
       msg.channel.send(embed)
-    } else if (msg.content == `${config.prefix}serverinfo`) {
+    }
+    if (msg.content == `${config.prefix}serverinfo`) {
       const serverEmbed = new discordjs.MessageEmbed()
         .setTitle('Server info')
         .setThumbnail(msg.guild.iconURL())
@@ -294,23 +374,109 @@ discord.on('message', (msg) => {
         .addField('**Channel count**', msg.guild.channels.cache.size, true)
         .addField('**Server owner**', msg.guild.owner, true)
       msg.channel.send(serverEmbed)
-    } else if (msg.content.startsWith(`${config.prefix}say`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}say`)) {
       const args = msg.content.slice(config.prefix.length).trim().split('say ')
       if (args[1].includes('@')) {
         msg.channel.send("I won't say that")
       } else {
         msg.channel.send(args[1])
       }
-    } else if (msg.content == `${config.prefix}ping`) {
+    }
+    // if (msg.content.startsWith(`${config.prefix}nsfw`)) {
+    //   nsfw()
+    //   async function nsfw() {
+    //     const args = msg.content.slice(config.prefix.length).trim().split(' ')
+    //     if (msg.channel.nsfw == true) {
+    //       if (args[1] == 'hentai') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekobot.xyz/api/image?type=hentai'
+    //         )
+
+    //         const hentai = new discordjs.MessageEmbed()
+    //           .setImage(body.message)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(hentai)
+    //       }
+    //       if (args[1] == 'anal') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekobot.xyz/api/image?type=anal'
+    //         )
+
+    //         const anal = new discordjs.MessageEmbed()
+    //           .setImage(body.message)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(anal)
+    //       }
+    //       if (args[1] == 'gif') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekobot.xyz/api/image?type=pgif'
+    //         )
+
+    //         const gif = new discordjs.MessageEmbed()
+    //           .setImage(body.message)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(gif)
+    //       }
+    //       if (args[1] == '4k') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekobot.xyz/api/image?type=4k'
+    //         )
+
+    //         const fourk = new discordjs.MessageEmbed()
+    //           .setImage(body.message)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(fourk)
+    //       }
+    //       if (args[1] == 'pussy') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekobot.xyz/api/image?type=pussy'
+    //         )
+
+    //         const pussy = new discordjs.MessageEmbed()
+    //           .setImage(body.message)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(pussy)
+    //       }
+    //       if (args[1] == 'lewd') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekos.life/api/v2/img/lewd'
+    //         )
+
+    //         const lewd = new discordjs.MessageEmbed()
+    //           .setImage(body.url)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(lewd)
+    //       }
+    //       if (args[1] == 'hentaicum') {
+    //         var { body } = await superAgent.get(
+    //           'https://nekos.life/api/v2/img/cum'
+    //         )
+
+    //         const hentaicum = new discordjs.MessageEmbed()
+    //           .setImage(body.url)
+    //           .setColor('#d059d8')
+    //         msg.channel.send(hentaicum)
+    //       }
+    //     } else {
+    //       msg.channel.send('You can only use this command in nsfw channels')
+    //     }
+    //   }
+    // }
+    if (msg.content == `${config.prefix}ping`) {
       msg.channel.send(`${Date.now() - msg.createdTimestamp}ms`)
-    } else if (msg.content.startsWith(`${config.prefix}uwu`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}uwu`)) {
       const uwu = msg.content.substr(`${config.prefix}uwu `.length)
       msg.channel.send(uwufy(uwu))
-    } else if (msg.content == `${config.prefix}prefix`) {
+    }
+    if (msg.content == `${config.prefix}prefix`) {
       msg.channel.send('Prefix is: ' + config.prefix)
-    } else if (msg.content == `${config.prefix}coin`) {
+    }
+    if (msg.content == `${config.prefix}coin`) {
       msg.reply(chance.coin())
-    } else if (msg.content == `${config.prefix}dog`) {
+    }
+    if (msg.content == `${config.prefix}dog`) {
       dog()
       async function dog() {
         var { body } = await superAgent.get('https://random.dog/woof.json')
@@ -320,7 +486,8 @@ discord.on('message', (msg) => {
           .setColor('#e99000')
         msg.channel.send(dogEmbed)
       }
-    } else if (msg.content == `${config.prefix}cat`) {
+    }
+    if (msg.content == `${config.prefix}cat`) {
       cat()
       async function cat() {
         var { body } = await superAgent.get('http://aws.random.cat/meow')
@@ -330,29 +497,37 @@ discord.on('message', (msg) => {
           .setColor('#a2b0dc')
         msg.channel.send(catEmbed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}owo`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}owo`)) {
       const owo = msg.content.substr(`${config.prefix}owo `.length)
       msg.channel.send(owofy(owo))
-    } else if (msg.content.startsWith(`${config.prefix}nick`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}nick`)) {
       const nickname = msg.content.substr(`${config.prefix}nick `.length)
       msg.guild.member(msg.author).setNickname(nickname)
-    } else if (msg.content.startsWith(`${config.prefix}urban`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}urban`)) {
       const a = msg.content.substr(`${config.prefix}urban `.length)
       const search = urban(a)
       search.first(function (json) {
         if (!json == '') {
-          msg.channel.send(
-              `**Definition**\n${json.definition}\n\n**Example**\n${json.example}\n\nby ${json.author}`
-          ).catch(() => {
-            msg.channel.send(
-              `Definition has too much letters, use link instead ${json.permalink}`
-            )
-          })
+          if (json.definition.length <= 2000) {
+            msg.channel
+              .send(
+                `**Definition**\n${json.definition}\n\n**Example**\n${json.example}\n\nby ${json.author}`
+              )
+              .catch(() => {
+                msg.channel.send(
+                  `Definition has too much letters, use link instead ${json.permalink}`
+                )
+              })
+          }
         } else {
           msg.channel.send('No results')
         }
       })
-    } else if (msg.content == `${config.prefix}neko`) {
+    }
+    if (msg.content == `${config.prefix}neko`) {
       neko()
       async function neko() {
         var { body } = await superAgent.get(
@@ -364,9 +539,11 @@ discord.on('message', (msg) => {
           .setColor('#fff23d')
         msg.channel.send(nekoembed)
       }
-    } else if (msg.content == `${config.prefix}delete`) {
+    }
+    if (msg.content == `${config.prefix}delete`) {
       msg.delete({ reason: 'a' })
-    } else if (msg.content == `${config.prefix}fox`) {
+    }
+    if (msg.content == `${config.prefix}fox`) {
       fox()
       async function fox() {
         var { body } = await superAgent.get('https://randomfox.ca/floof/')
@@ -376,7 +553,8 @@ discord.on('message', (msg) => {
           .setColor('#ffa83d')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}bird`) {
+    }
+    if (msg.content == `${config.prefix}bird`) {
       bird()
       async function bird() {
         var { body } = await superAgent.get(
@@ -388,7 +566,8 @@ discord.on('message', (msg) => {
           .setColor('#ffffff')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}duck`) {
+    }
+    if (msg.content == `${config.prefix}duck`) {
       duck()
       async function duck() {
         var { body } = await superAgent.get('https://random-d.uk/api/v2/quack')
@@ -398,19 +577,22 @@ discord.on('message', (msg) => {
           .setColor('#ff7b00')
         msg.channel.send(embed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}seal`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}seal`)) {
       let num = chance.natural({ min: 1, max: 86 })
       msg.channel.send({
         files: [`https://investigationelimination.xyz/seals/${num}.jpg`],
       })
-    } else if (msg.content.startsWith(`${config.prefix}spoilers`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}spoilers`)) {
       const spoiler = msg.content.substr(`${config.prefix}spoilers `.length)
       if (spoiler.includes('@')) {
         msg.channel.send("I won't say that")
       } else {
         msg.channel.send(`||${spoiler}||`)
       }
-    } else if (msg.content == `${config.prefix}useless`) {
+    }
+    if (msg.content == `${config.prefix}useless`) {
       let sites = [
         'http://heeeeeeeey.com/',
         'http://thatsthefinger.com/',
@@ -483,11 +665,13 @@ discord.on('message', (msg) => {
         'http://hardcoreprawnlawn.com/',
         'http://www.omfgdogs.com/',
       ]
-      const url = chance.pickone(sites)
+      let url = chance.pickone(sites)
       msg.channel.send(`Here is your useless website:\n${url}`)
-    } else if (msg.content == `${config.prefix}servericon`) {
+    }
+    if (msg.content == `${config.prefix}servericon`) {
       msg.channel.send(msg.guild.iconURL({ dynamic: true }))
-    } else if (msg.content.startsWith(`${config.prefix}choose`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}choose`)) {
       const args = msg.content
         .slice(`${config.prefix}choose `.length)
         .trim()
@@ -498,7 +682,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send('No options to choose from')
       }
-    } else if (msg.content.startsWith(`${config.prefix}word`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}word`)) {
       word()
       async function word() {
         const args = msg.content.slice(config.prefix.length).trim().split(' ')
@@ -507,16 +692,19 @@ discord.on('message', (msg) => {
             `https://random-word-api.herokuapp.com/word`
           )
           msg.channel.send(body)
-        } else if (args[1] <= 5) {
+        }
+        if (args[1] <= 5) {
           var { body } = await superAgent.get(
             `https://random-word-api.herokuapp.com/word?number=${args[1]}`
           )
           msg.channel.send(body)
-        } else if (args[1] > 5) {
+        }
+        if (args[1] > 5) {
           msg.channel.send('You have reached the cap')
         }
       }
-    } else if (msg.content == `${config.prefix}proglang`) {
+    }
+    if (msg.content == `${config.prefix}proglang`) {
       let proglangs = [
         'ActionScript',
         'AppleScript',
@@ -598,7 +786,8 @@ discord.on('message', (msg) => {
         'Z++',
       ]
       msg.channel.send(chance.pickone(proglangs))
-    } else if (msg.content == `${config.prefix}panda`) {
+    }
+    if (msg.content == `${config.prefix}panda`) {
       panda()
       async function panda() {
         var { body } = await superAgent.get(
@@ -610,29 +799,32 @@ discord.on('message', (msg) => {
           .setColor('#000000')
         msg.channel.send(embed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}lyrics`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}lyrics`)) {
       lyrics()
       async function lyrics() {
         const songtosearch = msg.content.substr(
           `${config.prefix}lyrics `.length
         )
-        let { body } = await superAgent
+        var { body } = await superAgent
           .get(`https://some-random-api.ml/lyrics?title=${songtosearch}`)
           .catch((err) => {
             msg.channel.send('No results')
           })
 
-        if (body.lyrics.length <= 2000) {
-          msg.channel.send(
-            `**${body.title}**\n\n**Lyrics**\n${body.lyrics}\n\n*by ${body.author}*`
-          )
-        } else {
+        if (body.lyrics.length > 2000) {
           msg.channel.send(
             `Lyrics has too much letters, use the link instead ${body.links.genius}`
           )
         }
+        if (body.lyrics.length <= 2000) {
+          msg.channel.send(
+            `**${body.title}**\n\n**Lyrics**\n${body.lyrics}\n\n*by ${body.author}*`
+          )
+        }
       }
-    } else if (msg.content.startsWith(`${config.prefix}userinfo`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}userinfo`)) {
       const user = msg.mentions.users.first()
       if (user) {
         const embed = new discordjs.MessageEmbed()
@@ -647,7 +839,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send('That is not a user')
       }
-    } else if (msg.content.startsWith(`${config.prefix}binary`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}binary`)) {
       binary()
       async function binary() {
         const args = msg.content
@@ -666,7 +859,8 @@ discord.on('message', (msg) => {
             )
             msg.channel.send(body.binary)
           }
-        } else if (args[0] == 'decode') {
+        }
+        if (args[0] == 'decode') {
           var { body } = await superAgent.get(
             `https://some-random-api.ml/binary?decode=${a}`
           )
@@ -675,11 +869,10 @@ discord.on('message', (msg) => {
           } else {
             msg.channel.send(body.text)
           }
-        } else {
-          msg.channel.send('Invalid argument.')
         }
       }
-    } else if (msg.content.startsWith(`${config.prefix}base64`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}base64`)) {
       base64()
       async function base64() {
         const args = msg.content
@@ -698,7 +891,8 @@ discord.on('message', (msg) => {
             )
             msg.channel.send(body.base64)
           }
-        } else if (args[0] == 'decode') {
+        }
+        if (args[0] == 'decode') {
           var { body } = await superAgent.get(
             `https://some-random-api.ml/base64?decode=${a}`
           )
@@ -707,18 +901,18 @@ discord.on('message', (msg) => {
           } else {
             msg.channel.send(body.text)
           }
-        } else {
-          msg.channel.send('Invalid argument.')
         }
       }
-    } else if (msg.content.startsWith(`${config.prefix}reverse`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}reverse`)) {
       const a = msg.content.substr(`${config.prefix}reverse `.length)
       if (a.includes('@')) {
         msg.channel.send("I won't say that")
       } else {
         msg.channel.send(a.split('').reverse().join(''))
       }
-    } else if (msg.content == `${config.prefix}stickbug`) {
+    }
+    if (msg.content == `${config.prefix}stickbug`) {
       let stickbug = [
         'https://www.youtube.com/watch?v=CNZdYtKhmQg',
         'https://www.youtube.com/watch?v=ImAUJsMNWbY',
@@ -746,13 +940,15 @@ discord.on('message', (msg) => {
         'https://www.youtube.com/watch?v=q6s99eH9EC8',
       ]
       msg.channel.send(chance.pickone(stickbug))
-    } else if (msg.content == `${config.prefix}shiba`) {
+    }
+    if (msg.content == `${config.prefix}shiba`) {
       shiba()
       async function shiba() {
         var { body } = await superAgent.get('http://shibe.online/api/shibes')
         msg.channel.send(body)
       }
-    } else if (msg.content == `${config.prefix}mlem`) {
+    }
+    if (msg.content == `${config.prefix}mlem`) {
       mlem()
       async function mlem() {
         var { body } = await superAgent.get('https://mlem.tech/api/randommlem')
@@ -762,19 +958,22 @@ discord.on('message', (msg) => {
           .setColor('#ba7627')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}nugget`) {
+    }
+    if (msg.content == `${config.prefix}nugget`) {
       let num = chance.natural({ min: 1, max: 70 })
       msg.channel.send({
         files: [`https://investigationelimination.xyz/nugget/${num}.jpeg`],
       })
-    } else if (msg.content == `${config.prefix}earthporn`) {
+    }
+    if (msg.content == `${config.prefix}earthporn`) {
       randompuppy('earthporn').then((url) => {
         const embed = new discordjs.MessageEmbed()
           .setImage(url)
           .setColor('#00ab17')
         msg.channel.send(embed)
       })
-    } else if (msg.content == `${config.prefix}meme`) {
+    }
+    if (msg.content == `${config.prefix}meme`) {
       meme()
       async function meme() {
         var { body } = await superAgent.get('https://some-random-api.ml/meme')
@@ -785,54 +984,67 @@ discord.on('message', (msg) => {
           .setColor('#000000')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}food`) {
+    }
+    if (msg.content == `${config.prefix}food`) {
       randompuppy('foodporn').then((url) => {
         const embed = new discordjs.MessageEmbed()
           .setImage(url)
           .setColor('#ff0000')
         msg.channel.send(embed)
       })
-    } else if (msg.content.startsWith(`${config.prefix}calculate`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}calculate`)) {
       const a = msg.content.substr(`${config.prefix}calculate `.length)
+      let ans
       try {
-        let ans = math.evaluate(a)
-        msg.channel.send(ans)
+        ans = math.evaluate(a)
       } catch (e) {
         msg.channel.send('That is not a valid calculation.')
       }
-    } else if (msg.content == `${config.prefix}pasta`) {
+      if (ans) {
+        msg.channel.send(ans)
+      }
+    }
+    if (msg.content == `${config.prefix}pasta`) {
       randompuppy('pasta').then((url) => {
         const embed = new discordjs.MessageEmbed()
           .setImage(url)
           .setColor('#005eff')
         msg.channel.send(embed)
       })
-    } else if (msg.content.startsWith(`${config.prefix}dice`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}dice`)) {
       const d = msg.content.slice(config.prefix.length).trim().split(' ')
       if (d) {
         if (d[1] == 'd4') {
           msg.channel.send(chance.d4())
-        } else if (d[1] == 'd6') {
+        }
+        if (d[1] == 'd6') {
           msg.channel.send(chance.d6())
-        } else if (d[1] == 'd8') {
+        }
+        if (d[1] == 'd8') {
           msg.channel.send(chance.d8())
-        } else if (d[1] == 'd10') {
+        }
+        if (d[1] == 'd10') {
           msg.channel.send(chance.d10())
-        } else if (d[1] == 'd12') {
+        }
+        if (d[1] == 'd12') {
           msg.channel.send(chance.d12())
-        } else if (d[1] == 'd20') {
+        }
+        if (d[1] == 'd20') {
           msg.channel.send(chance.d20())
-        } else if (d[1] == 'd30') {
+        }
+        if (d[1] == 'd30') {
           msg.channel.send(chance.d30())
-        } else if (d[1] == 'd100') {
+        }
+        if (d[1] == 'd100') {
           msg.channel.send(chance.d100())
-        } else {
-          msg.channel.send('Invalid roll.')
         }
       } else {
-        msg.channel.send("You didn't specify to use what roll of the dice.")
+        msg.channel.send("You didn't specify to use what roll of the dice")
       }
-    } else if (msg.content.startsWith(`${config.prefix}8ball`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}8ball`)) {
       const a = msg.content.substr(`${config.prefix}8ball `.length)
       let res = [
         'As I see it, yes.',
@@ -861,7 +1073,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send(chance.pickone(res))
       }
-    } else if (msg.content.startsWith(`${config.prefix}tinyurl`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}tinyurl`)) {
       const a = msg.content.substr(`${config.prefix}tinyurl `.length)
       if (a) {
         tinyurl.shorten(a).then(function (res) {
@@ -874,14 +1087,14 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send("You didn' specify a link to shorten")
       }
-    } else if (msg.content.startsWith(`${config.prefix}rndtranslate`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}rndtranslate`)) {
       const a = msg.content.substr(`${config.prefix}translate `.length)
       let l = JSON.parse(
         '{"af": "Afrikaans", "sq": "Albanian", "am": "Amharic", "ar": "Arabic", "hy": "Armenian", "az": "Azerbaijani", "eu": "Basque", "be": "Belarusian", "bn": "Bengali", "bs": "Bosnian", "bg": "Bulgarian", "ca": "Catalan", "ceb": "Cebuano", "ny": "Chichewa", "zh-CN": "Chinese (Simplified)", "zh-TW": "Chinese (Traditional)", "co": "Corsican", "hr": "Croatian", "cs": "Czech", "da": "Danish", "nl": "Dutch", "en": "English", "eo": "Esperanto", "et": "Estonian", "tl": "Filipino", "fi": "Finnish", "fr": "French", "fy": "Frisian", "gl": "Galician", "ka": "Georgian", "de": "German", "el": "Greek", "gu": "Gujarati", "ht": "Haitian Creole", "ha": "Hausa", "haw": "Hawaiian", "he": "Hebrew", "iw": "Hebrew", "hi": "Hindi", "hmn": "Hmong", "hu": "Hungarian", "is": "Icelandic", "ig": "Igbo", "id": "Indonesian", "ga": "Irish", "it": "Italian", "ja": "Japanese", "jw": "Javanese", "kn": "Kannada", "kk": "Kazakh", "km": "Khmer", "ko": "Korean", "ku": "Kurdish (Kurmanji)", "ky": "Kyrgyz", "lo": "Lao", "la": "Latin", "lv": "Latvian", "lt": "Lithuanian", "lb": "Luxembourgish", "mk": "Macedonian", "mg": "Malagasy", "ms": "Malay", "ml": "Malayalam", "mt": "Maltese", "mi": "Maori", "mr": "Marathi", "mn": "Mongolian", "my": "Myanmar (Burmese)", "ne": "Nepali", "no": "Norwegian", "ps": "Pashto", "fa": "Persian", "pl": "Polish", "pt": "Portuguese", "pa": "Punjabi", "ro": "Romanian", "ru": "Russian", "sm": "Samoan", "gd": "Scots Gaelic", "sr": "Serbian", "st": "Sesotho", "sn": "Shona", "sd": "Sindhi", "si": "Sinhala", "sk": "Slovak", "sl": "Slovenian", "so": "Somali", "es": "Spanish", "su": "Sundanese", "sw": "Swahili", "sv": "Swedish", "tg": "Tajik", "ta": "Tamil", "te": "Telugu", "th": "Thai", "tr": "Turkish", "uk": "Ukrainian", "ur": "Urdu", "uz": "Uzbek", "vi": "Vietnamese", "cy": "Welsh","xh": "Xhosa", "yi": "Yiddish", "yo": "Yoruba", "zu": "Zulu"}'
       )
       let language = []
       for (var i in l) language.push(l[i])
-
       translate(a, { to: chance.pickone(language) }).then((res) => {
         translate(res.text, { to: chance.pickone(language) }).then((res) => {
           translate(res.text, { to: chance.pickone(language) }).then((res) => {
@@ -913,8 +1126,24 @@ discord.on('message', (msg) => {
                                       (res) => {
                                         msg.channel.send(res.text)
                                       }
-      )})})})})})})})})})})})})
-    } else if (msg.content.startsWith(`${config.prefix}kick`)) {
+                                    )
+                                  })
+                                })
+                              })
+                            })
+                          })
+                        })
+                      }
+                    )
+                  }
+                )
+              }
+            )
+          })
+        })
+      })
+    }
+    if (msg.content.startsWith(`${config.prefix}kick`)) {
       if (
         msg.guild.member(msg.author).hasPermission('ADMINISTRATOR') ||
         msg.author.id == '404422844580233217'
@@ -940,7 +1169,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send("You don' have enough permissions")
       }
-    } else if (msg.content == `${config.prefix}hug`) {
+    }
+    if (msg.content == `${config.prefix}hug`) {
       hug()
       async function hug() {
         var { body } = await superAgent.get(
@@ -951,7 +1181,8 @@ discord.on('message', (msg) => {
           .setColor('#ff42f2')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}koala`) {
+    }
+    if (msg.content == `${config.prefix}koala`) {
       koala()
       async function koala() {
         var { body } = await superAgent.get(
@@ -962,7 +1193,8 @@ discord.on('message', (msg) => {
           .setColor('#fffff')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}wink`) {
+    }
+    if (msg.content == `${config.prefix}wink`) {
       wink()
       async function wink() {
         var { body } = await superAgent.get(
@@ -973,7 +1205,8 @@ discord.on('message', (msg) => {
           .setColor('#ff0363')
         msg.channel.send(embed)
       }
-    } else if (msg.content == `${config.prefix}pat`) {
+    }
+    if (msg.content == `${config.prefix}pat`) {
       pat()
       async function pat() {
         var { body } = await superAgent.get(
@@ -984,7 +1217,8 @@ discord.on('message', (msg) => {
           .setColor('#525252')
         msg.channel.send(embed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}rps`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}rps`)) {
       const args = msg.content.slice(config.prefix.length).trim().split(' ')
       if (args[1]) {
         const a = args[1].toLowerCase()
@@ -993,37 +1227,47 @@ discord.on('message', (msg) => {
           msg.channel.send(v)
           if (a == 'rock' && v == 'Scissors') {
             msg.channel.send('Player wins')
-          } else if (a == 'rock' && v == 'Paper') {
+          }
+          if (a == 'rock' && v == 'Paper') {
             msg.channel.send('Bot wins')
-          } else if (a == 'rock' && v == 'Rock') {
+          }
+          if (a == 'rock' && v == 'Rock') {
             msg.channel.send('Tie')
-          } else if (a == 'scissors' && v == 'Scissors') {
+          }
+          if (a == 'scissors' && v == 'Scissors') {
             msg.channel.send('Tie')
-          } else if (a == 'scissors' && v == 'Rock') {
+          }
+          if (a == 'scissors' && v == 'Rock') {
             msg.channel.send('Bot wins')
-          } else if (a == 'scissors' && v == 'paper') {
+          }
+          if (a == 'scissors' && v == 'paper') {
             msg.channel.send('Player wins')
-          } else if (a == 'paper' && v == 'Rock') {
+          }
+          if (a == 'paper' && v == 'Rock') {
             msg.channel.send('Player wins')
-          } else if (a == 'paper' && v == 'Scissors') {
+          }
+          if (a == 'paper' && v == 'Scissors') {
             msg.channel.send('Bot wins')
-          } else if (a == 'paper' && v == 'Paper') {
+          }
+          if (a == 'paper' && v == 'Paper') {
             msg.channel.send('Tie')
           }
         } else {
-          msg.channel.send('Invalid argument.')
+          msg.channel.send('That is not rock, paper or scissors')
         }
       } else {
         msg.channel.send("You didn't say rock, paper or scissors")
       }
-    } else if (msg.content == `${config.prefix}japan`) {
+    }
+    if (msg.content == `${config.prefix}japan`) {
       randompuppy('japanpics').then((url) => {
         const embed = new discordjs.MessageEmbed()
           .setImage(url)
           .setColor('#1bc904')
         msg.channel.send(embed)
       })
-    } else if (msg.content.startsWith(`${config.prefix}poll`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}poll`)) {
       poll()
       async function poll() {
         if (
@@ -1056,12 +1300,14 @@ discord.on('message', (msg) => {
           msg.channel.send("You don't have enough permissions")
         }
       }
-    } else if (msg.content.startsWith(`${config.prefix}hastebin`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}hastebin`)) {
       const a = msg.content.substr(`${config.prefix}hastebin `.length)
       hastebin.createPaste(a).then((urlToPaste) => {
         msg.channel.send(urlToPaste)
       })
-    } else if (msg.content.startsWith(`${config.prefix}emojitext`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}emojitext`)) {
       const ahhhhh = msg.content.substr(`${config.prefix}emojitext `.length)
       if (ahhhhh) {
         const a = ahhhhh.toLowerCase()
@@ -1118,7 +1364,8 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send("You didn't type anything for me to translate")
       }
-    } else if (msg.content.startsWith(`${config.prefix}translate`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}translate`)) {
       const args = msg.content.slice(config.prefix.length).trim().split(' ')
       const a = msg.content.substr(
         `${config.prefix}translate ${args[1]} `.length
@@ -1129,7 +1376,7 @@ discord.on('message', (msg) => {
           translate(a, { to: r })
             .catch(() => {
               msg.channel.send(
-                'Invalid language. Please do .translangs for all the supported languages'
+                'That language is not supported.=, do .translangs for all the supported languages'
               )
             })
             .then((res) => {
@@ -1141,12 +1388,14 @@ discord.on('message', (msg) => {
       } else {
         msg.channel.send("You didn't specify a language to translate to")
       }
-    } else if (msg.content == `${config.prefix}translangs`) {
+    }
+    if (msg.content == `${config.prefix}translangs`) {
       msg.author.send(
         'translate languages\n\nauto: Automatic\naf: Afrikaans\nsq: Albanian\nam: Amharic\nar: Arabic\nhy: Armenian\naz: Azerbaijani\neu: Basque\be: Belarusian\nbn: Bengali\nbs: Bosnian\nbg: Bulgarian\nca: Catalan\nceb: Cebuano\nny: Chichewa\nzh-CN: Chinese (Simplified)\nzh-TW: Chinese (Traditional)\nco: Corsican\nhr: Croatian\ncs: Czech\nda: Danish\nnl: Dutch\nen: English\neo: Esperanto\net: Estonian\ntl: Filipino\nfi: Finnish\nfr: French\nfy: Frisian\ngl: Galician\nka: Georgian\nde: German\nel: Greek\ngu: Gujarati\nht: Haitian Creole\nha: Hausa\nhaw: Hawaiian\nhe: Hebrew\niw: Hebrew\nhi: Hindi\nhmn: Hmong\nhu: Hungarian\nis: Icelandic\nig: Igbo\nid: Indonesian\nga: Irish\nit: Italian\nja: Japanese\njw: Javanese\nkn: Kannada\nkk: Kazakh\nkm: Khmer\nko: Korean\nku: Kurdish (Kurmanji)\nky: Kyrgyz\nlo: Lao\nla: Latin\nlv: Latvian\nlt: Lithuanian\nlb: Luxembourgish\nmk: Macedonian\nmg: Malagasy\nms: Malay\nml: Malayalam\nmt: Maltese\nmi: Maori\nmr: Marathi\nmn: Mongolian\nmy: Myanmar (Burmese)\nne: Nepali\nno: Norwegian\nps: Pashto\nfa: Persian\npl: Polish\npt: Portuguese\npa: Punjabi\nro: Romanian\nru: Russian\nsm: Samoan\ngd: Scots Gaelic\nsr: Serbian\nst: Sesotho\nsn: Shona\nsd: Sindhi\nsi: Sinhala\nsk: Slovak\nsl: Slovenian\nso: Somali\nes: Spanish\nsu: Sundanese\nsw: Swahili\nsv: Swedish\ntg: Tajik\nta: Tamil\nte: Telugu\nth: Thai\ntr: Turkish\nuk: Ukrainian\nur: Urdu\nuz: Uzbek\nvi: Vietnamese\ncy: Welsh\nxh: Xhosa\nyi: Yiddish\nyo: Yoruba\nzu: Zulu'
       )
       msg.reply('Check your dms')
-    } else if (msg.content == `${config.prefix}covid19`) {
+    }
+    if (msg.content == `${config.prefix}covid19`) {
       covid()
       async function covid() {
         let { body } = await superAgent.get(
@@ -1160,7 +1409,8 @@ discord.on('message', (msg) => {
           .addField('Total Covid19 victims recovered', body.TotalRecovered)
         msg.channel.send(embed)
       }
-    } else if (msg.content.startsWith(`${config.prefix}slowmode`)) {
+    }
+    if (msg.content.startsWith(`${config.prefix}slowmode`)) {
       if (
         msg.guild.member(msg.author).hasPermission('ADMINISTRATOR') ||
         msg.author.id == '404422844580233217'
