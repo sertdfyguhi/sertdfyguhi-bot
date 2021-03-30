@@ -1,0 +1,15 @@
+{
+  "dependencies": {
+    "@vitalets/google-translate-api": "^5.1.0",
+    "chance": "^1.1.7",
+    "discord.js": "^12.5.1",
+    "hastebin": "^0.2.1",
+    "mathjs": "^9.3.0",
+    "owofy": "^1.0.2",
+    "random-puppy": "^1.1.0",
+    "superagent": "^6.1.0",
+    "tinyurl": "^1.1.7",
+    "urban": "^0.3.2",
+    "uwufy": "^1.0.7"
+  }
+}
