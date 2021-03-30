@@ -54,10 +54,6 @@ discord.on('message', (msg) => {
             '**Fun**',
             '`.random {letter, number, string, color} {hex, shorthex, rgb, 0x(color only)}`\n`.uwu {text}`\n`.owo {text}`\n`.dog`\n`.cat`\n`.embed -{title} -{description} -{hex color}`\n`.say {text}`\n`.dm {text}`\n`.coin`\n`.neko`\n`.fox`\n`.bird`\n`.duck`\n`.seal`\n`.spoilers`\n`.useless`\n`.choose {option} {option}...`\n`.word {number of words}`\n`.proglang`\n`.panda`\n`.binary {encode/decode} {text/binary}`\n`.base64 {encode/decode} {text/base64}`\n`.reverse {text}`\n`.stickbug`\n`.shiba`\n`.mlem`\n`.nugget`\n`.earthporn`\n`.meme`\n`.food`\n`.calculate {calculation}`\n`.pasta`\n`.dice {d4, d6, d8, d10, d12, d20, d30, d100}`\n`.8ball {question}`\n`.rndtranslate {text}`\n`.hug`\n`.koala`\n`.wink`\n`.pat`\n`.rps {rock, paper, scissors}`\n`.japan`\n`.emojitext {text}`'
           )
-          // .addField(
-          //   '**Nsfw**',
-          //   '`.nsfw {pussy, 4k, anal, gif, hentai, lewd, hentaicum}`'
-          // )
           .addField(
             '**Misc**',
             '`.avatar {mention}`\n`.ping`\n`.urban {word}`\n`.delete`\n`.lyrics {song name}`\n`.userinfo {mention}`\n`.tinyurl {url}`\n`.poll {channel} {question}`\n`.hastebin {text}`\n`.translate {language} {text}`\n`.translangs`\n`.covid19`'
@@ -122,11 +118,6 @@ discord.on('message', (msg) => {
       if (args[1] == 'coin') {
         msg.channel.send('`.coin`: flips a coin')
       }
-      // if (args[1] == 'nsfw') {
-      //   msg.channel.send(
-      //     '`.nsfw {4k, gif, hentai, anal, pussy, lewd, hentaicum}`: sends random nsfw photo'
-      //   )
-      // }
       if (args[1] == 'avatar') {
         msg.channel.send("`.avatar {mention}`: sends mentioned user's avatar")
       }
@@ -383,86 +374,6 @@ discord.on('message', (msg) => {
         msg.channel.send(args[1])
       }
     }
-    // if (msg.content.startsWith(`${config.prefix}nsfw`)) {
-    //   nsfw()
-    //   async function nsfw() {
-    //     const args = msg.content.slice(config.prefix.length).trim().split(' ')
-    //     if (msg.channel.nsfw == true) {
-    //       if (args[1] == 'hentai') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekobot.xyz/api/image?type=hentai'
-    //         )
-
-    //         const hentai = new discordjs.MessageEmbed()
-    //           .setImage(body.message)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(hentai)
-    //       }
-    //       if (args[1] == 'anal') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekobot.xyz/api/image?type=anal'
-    //         )
-
-    //         const anal = new discordjs.MessageEmbed()
-    //           .setImage(body.message)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(anal)
-    //       }
-    //       if (args[1] == 'gif') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekobot.xyz/api/image?type=pgif'
-    //         )
-
-    //         const gif = new discordjs.MessageEmbed()
-    //           .setImage(body.message)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(gif)
-    //       }
-    //       if (args[1] == '4k') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekobot.xyz/api/image?type=4k'
-    //         )
-
-    //         const fourk = new discordjs.MessageEmbed()
-    //           .setImage(body.message)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(fourk)
-    //       }
-    //       if (args[1] == 'pussy') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekobot.xyz/api/image?type=pussy'
-    //         )
-
-    //         const pussy = new discordjs.MessageEmbed()
-    //           .setImage(body.message)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(pussy)
-    //       }
-    //       if (args[1] == 'lewd') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekos.life/api/v2/img/lewd'
-    //         )
-
-    //         const lewd = new discordjs.MessageEmbed()
-    //           .setImage(body.url)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(lewd)
-    //       }
-    //       if (args[1] == 'hentaicum') {
-    //         var { body } = await superAgent.get(
-    //           'https://nekos.life/api/v2/img/cum'
-    //         )
-
-    //         const hentaicum = new discordjs.MessageEmbed()
-    //           .setImage(body.url)
-    //           .setColor('#d059d8')
-    //         msg.channel.send(hentaicum)
-    //       }
-    //     } else {
-    //       msg.channel.send('You can only use this command in nsfw channels')
-    //     }
-    //   }
-    // }
     if (msg.content == `${config.prefix}ping`) {
       msg.channel.send(`${Date.now() - msg.createdTimestamp}ms`)
     }
