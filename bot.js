@@ -824,9 +824,6 @@ discord.on('message', (msg) => {
         }
       }
     }
-    if (msg.content == `${config.prefix}npesta`) {
-      msg.channel.send({ files: ['/Users/JLOLC/Desktop/projects/bot/images/npesta.jpg'] })
-    }
     if (msg.content.startsWith(`${config.prefix}userinfo`)) {
       const user = msg.mentions.users.first()
       if (user) {
