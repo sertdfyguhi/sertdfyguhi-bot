@@ -891,10 +891,14 @@ discord.on('message', (msg) => {
       translate(a, { to: langs[0] }).then((res) => {
         translate(res.text, { to: langs[1] }).then((res) => {
           translate(res.text, { to: langs[2] }).then((res) => {
-            translate(res.text, { to: langs[3] }).then(
-              (res) => {
+            translate(res.text, { to: langs[3] }).then((res) => {
+              translate(res.text, { to: 'en' }).then((res) => {
                 msg.channel.send(`Translated to ${langs.join(' then to ')}\n${res.text}`)
-              })})})})
+              })
+            })
+          })
+        })
+      })
     } else if (msg.content.startsWith(`${config.prefix}kick`)) {
       if (
         msg.guild.member(msg.author).hasPermission('ADMINISTRATOR') ||
