@@ -884,38 +884,17 @@ discord.on('message', (msg) => {
       let language = []
       for (var i in l) language.push(l[i])
 
-      translate(a, { to: chance.pickone(language) }).then((res) => {
-        translate(res.text, { to: chance.pickone(language) }).then((res) => {
-          translate(res.text, { to: chance.pickone(language) }).then((res) => {
-            translate(res.text, { to: chance.pickone(language) }).then(
+      let langs = []
+
+      for (var i = 0; i < 4; i++) langs.push(chance.pickone(language))
+
+      translate(a, { to: langs[0] }).then((res) => {
+        translate(res.text, { to: langs[1] }).then((res) => {
+          translate(res.text, { to: langs[2] }).then((res) => {
+            translate(res.text, { to: langs[3] }).then(
               (res) => {
-                translate(res.text, { to: chance.pickone(language) }).then(
-                  (res) => {
-                    translate(res.text, { to: chance.pickone(language) }).then(
-                      (res) => {
-                        translate(res.text, {
-                          to: chance.pickone(language),
-                        }).then((res) => {
-                          translate(res.text, {
-                            to: chance.pickone(language),
-                          }).then((res) => {
-                            translate(res.text, {
-                              to: chance.pickone(language),
-                            }).then((res) => {
-                              translate(res.text, {
-                                to: chance.pickone(language),
-                              }).then((res) => {
-                                translate(res.text, {
-                                  to: chance.pickone(language),
-                                }).then((res) => {
-                                  translate(res.text, {
-                                    to: chance.pickone(language),
-                                  }).then((res) => {
-                                    translate(res.text, { to: 'en' }).then(
-                                      (res) => {
-                                        msg.channel.send(res.text)
-                                      }
-      )})})})})})})})})})})})})
+                msg.channel.send(`Translated to ${langs.join(' then to ')}\n${res.text}`)
+              })})})})
     } else if (msg.content.startsWith(`${config.prefix}kick`)) {
       if (
         msg.guild.member(msg.author).hasPermission('ADMINISTRATOR') ||
