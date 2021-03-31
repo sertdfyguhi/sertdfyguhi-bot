@@ -223,7 +223,9 @@ discord.on('message', (msg) => {
           '`.slowmode {channel} {seconds}`: sets channel slowmode to seconds'
         )
       } else {
-        msg.channel.send('Invalid command.')
+        if (typeof args[1] != 'undefined') {
+          msg.channel.send('Invalid command.')
+        }
       }
     } else if (msg.content.startsWith(`${config.prefix}random`)) {
       const args = msg.content.slice(config.prefix.length).trim().split(' ')
