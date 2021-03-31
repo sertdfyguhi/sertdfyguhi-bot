@@ -223,7 +223,7 @@ discord.on('message', (msg) => {
           '`.slowmode {channel} {seconds}`: sets channel slowmode to seconds'
         )
       } else {
-        if (args[1] != '') {
+        if (args[1]) {
           msg.channel.send('Invalid command.')
         }
       }
