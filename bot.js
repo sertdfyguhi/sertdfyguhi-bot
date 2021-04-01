@@ -50,7 +50,7 @@ discord.on('message', (msg) => {
           )
           .addField(
             '**Fun**',
-            '`.random {letter, number, string, color} {hex, shorthex, rgb, 0x(color only)}`\n`.uwu {text}`\n`.owo {text}`\n`.dog`\n`.cat`\n`.embed -{title} -{description} -{hex color}`\n`.say {text}`\n`.dm {text}`\n`.coin`\n`.neko`\n`.fox`\n`.bird`\n`.duck`\n`.seal`\n`.spoilers`\n`.useless`\n`.choose {option} {option}...`\n`.word {number of words}`\n`.proglang`\n`.panda`\n`.binary {encode/decode} {text/binary}`\n`.base64 {encode/decode} {text/base64}`\n`.reverse {text}`\n`.stickbug`\n`.shiba`\n`.mlem`\n`.nugget`\n`.earthporn`\n`.meme`\n`.food`\n`.calculate {calculation}`\n`.pasta`\n`.dice {d4, d6, d8, d10, d12, d20, d30, d100}`\n`.8ball {question}`\n`.rndtranslate {text}`\n`.hug`\n`.koala`\n`.wink`\n`.pat`\n`.rps {rock, paper, scissors}`\n`.japan`\n`.emojitext {text}`'
+            '`.random {letter, number, string, color} {hex, shorthex, rgb, 0x(color only)}`\n`.uwu {text}`\n`.owo {text}`\n`.dog`\n`.cat`\n`.embed -{title} -{description} -{hex color}`\n`.dm {text}`\n`.coin`\n`.neko`\n`.fox`\n`.bird`\n`.duck`\n`.seal`\n`.spoilers`\n`.useless`\n`.choose {option} {option}...`\n`.word {number of words}`\n`.proglang`\n`.panda`\n`.binary {encode/decode} {text/binary}`\n`.base64 {encode/decode} {text/base64}`\n`.reverse {text}`\n`.stickbug`\n`.shiba`\n`.mlem`\n`.nugget`\n`.earthporn`\n`.meme`\n`.food`\n`.calculate {calculation}`\n`.pasta`\n`.dice {d4, d6, d8, d10, d12, d20, d30, d100}`\n`.8ball {question}`\n`.rndtranslate {text}`\n`.hug`\n`.koala`\n`.wink`\n`.pat`\n`.rps {rock, paper, scissors}`\n`.japan`\n`.emojitext {text}`'
           )
           .addField(
             '**Misc**',
@@ -94,8 +94,6 @@ discord.on('message', (msg) => {
         msg.channel.send(
           '`.embed -{title} -{description} -{hex color}`: sends a embed (make sure to add - in front of title, description and color)'
         )
-      } else if (args[1] == 'say') {
-        msg.channel.send('`.say {text}`: says text')
       } else if (args[1] == 'dm') {
         msg.channel.send("`.dm {text}`: dm's message author text")
       } else if (args[1] == 'coin') {
@@ -296,13 +294,6 @@ discord.on('message', (msg) => {
         .addField('**Channel count**', msg.guild.channels.cache.size, true)
         .addField('**Server owner**', msg.guild.owner, true)
       msg.channel.send(serverEmbed)
-    } else if (msg.content.startsWith(`${config.prefix}say`)) {
-      const args = msg.content.slice(config.prefix.length).trim().split('say ')
-      if (args[1].includes('@')) {
-        msg.channel.send("I won't say that")
-      } else {
-        msg.channel.send(args[1])
-      }
     } else if (msg.content == `${config.prefix}ping`) {
       msg.channel.send(`${Date.now() - msg.createdTimestamp}ms`)
     } else if (msg.content.startsWith(`${config.prefix}uwu`)) {
