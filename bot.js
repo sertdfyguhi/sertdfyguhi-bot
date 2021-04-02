@@ -20,7 +20,6 @@ discord.on('ready', () => {
 
 discord.on('message', (msg) => {
   if (msg.guild) {
-    discord.user.setActivity('do .help for commands')
     if (msg.content == `${config.prefix}credits`) {
       msg.channel.send('*Made by sertdfyguhi#5971*')
     } else if (msg.content == `${config.prefix}pin`) {
